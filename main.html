@@ -103,7 +103,13 @@
             location.href = "./full.html"
         }
         previewContainer.appendChild(card)
-        
+        setTimeout(()=>{clear(previewContainer)},500)
+        function clear(parentElement){
+            parentElement.childNodes.forEach(child => {
+                child.remove()
+            })
+            console.log("cleared!")
+        }
     })
 </script>
 </html>
