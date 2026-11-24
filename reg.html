@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="reg.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="header-container">
+        <button class="header-button main">
+            На главную
+        </button> 
+        <button class="header-button reg">
+            Регистрация
+        </button>
+    </div>
+    <form class="input-container">
+        <div class="column-input">
+            <p>Логин:</p>
+            <input type="text" required maxlength="15">
+        </div>
+        <br>
+        <div class="column-input">
+            <p>Почта:</p>
+            <input type="email" required  maxlength="55">
+        </div>
+        <br>
+        <div class="column-input">
+            <p>Пароль:</p>
+            <input type="password" required minlength="6" maxlength="20">
+        </div>
+        <br>
+        <p>Сколько вам лет?</p>
+        <div class="row-input radio-input">
+            <input name="radio_age" value="1" id="radio_age1" type="radio" required>14-18
+        </div>
+        <div class="row-input radio-input">
+            <input name="radio_age" value="2" id="radio_age2" type="radio" required>18-26    
+        </div>
+        <div class="row-input radio-input">
+            <input name="radio_age" value="3" id="radio_age3" type="radio" required>26+&nbsp;&nbsp;&nbsp;
+        </div>
+        <br>
+        <div class="row-input">
+            <p>Согласны на рассылку<br>важных новостей?</p>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="row-input">
+            <p>Согласны с <a href="./doc1.doc">обработкой<br>персональных данных</a>?</p>
+            <input type="checkbox" required>
+        </div>
+        <br>
+        <input type="submit" value="Зарегистрироваться" required>
+    </form>
+    
+</body>
+<script>
+    var goMainButton = document.querySelector(".header-button.main")
+    var goRegButton = document.querySelector(".header-button.reg")
+    goMainButton.onclick = () => {
+        location.href = "./main.html"
+    }
+    goRegButton.onclick = () => {
+        location.href = "./reg.html"
+    }
+
+    var inputForm = document.querySelector("form.input-container")
+    inputForm.addEventListener("submin", (e) => {
+        e.preventDefault()
+        alert(Object.fromEntries(new FormData(e.target)))
+    })
+</script>
+</html>
